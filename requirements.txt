@@ -1,0 +1,26 @@
+# Core RAG stack
+sentence-transformers==2.7.0
+chromadb==0.5.3
+langchain==0.2.11
+langchain-community==0.2.10
+langchain-text-splitters==0.2.2
+
+# LLM — Groq (free tier, fast inference: llama-3.1-70b)
+# Alternatively: Ollama for fully local inference
+groq>=0.13.0
+
+# Data handling
+requests==2.32.3
+beautifulsoup4==4.12.3
+pdfplumber==0.11.3
+python-docx==1.1.2
+tqdm==4.66.4
+pandas==2.2.2
+
+# UI
+streamlit==1.36.0
+streamlit-chat==0.1.1
+
+# Evaluation
+rouge-score==0.1.2
+numpy==1.26.4

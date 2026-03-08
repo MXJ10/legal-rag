@@ -1,0 +1,14 @@
+{
+  "total_contracts": 103,
+  "total_chunks": 10175,
+  "by_type": {
+    "unknown": 38,
+    "manufacturing": 3,
+    "lease": 5,
+    "marketing": 15,
+    "nda": 20,
+    "development": 16,
+    "employment": 1,
+    "ip_license": 5
+  }
+}

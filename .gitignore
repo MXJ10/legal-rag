@@ -1,0 +1,23 @@
+# ChromaDB vector index — too large for git (91MB), rebuild with: python pipeline/embed.py
+vectordb/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Sentence-transformers model cache (downloaded automatically)
+.cache/
+models/
+
+# Environment / secrets
+.env
+*.env
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,602 @@
+[
+  {
+    "id": "q001",
+    "question": "Who are the parties to the Software Development Agreement?",
+    "answer": "DOT COM LLC, doing business as Seattle Software Developers (the Developer), and Pelican Delivers Inc. (the Client).",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "parties",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q002",
+    "question": "What is the effective date of the Software Development Agreement?",
+    "answer": "December 3, 2018.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "term",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q003",
+    "question": "What is the name of the software application to be developed under the agreement?",
+    "answer": "Pelican Delivers Application Phase 1.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "statement of work",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q004",
+    "question": "How many days does the Client have to notify the Developer of a milestone deliverable failure?",
+    "answer": "Ten (10) days of the Milestone's Acceptance Test Date.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "acceptance",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q005",
+    "question": "How long does the Developer have to correct deficiencies after receiving a Change Request?",
+    "answer": "Twenty (20) days from the receipt of the Change Request.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "acceptance",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q006",
+    "question": "How many days does the Client have to inspect a Modified Deliverable after the Developer's correction?",
+    "answer": "Five (5) days to inspect, test, and reevaluate the Modified Deliverable.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "acceptance",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q007",
+    "question": "What happens if a Milestone Deliverable is not rejected by the Client within the specified time period?",
+    "answer": "The Milestone Deliverable will be deemed accepted by the Client.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "acceptance",
+    "difficulty": "medium",
+    "question_type": "conditional"
+  },
+  {
+    "id": "q008",
+    "question": "What options does the Client have if the Final Deliverable still fails after the Developer's correction?",
+    "answer": "The Client may either repeat the correction procedure or terminate the Agreement pursuant to Section 12.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "termination",
+    "difficulty": "hard",
+    "question_type": "conditional"
+  },
+  {
+    "id": "q009",
+    "question": "How long does the Client have to perform Acceptance Tests on the Final Subject Program?",
+    "answer": "Fifteen (15) calendar days from the Acceptance Test Date.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "acceptance",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q010",
+    "question": "What is the hourly rate for Client Termination Assistance Services?",
+    "answer": "$125.00 per hour.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "fees",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q011",
+    "question": "How long does the Developer have to evaluate a Change Order after receiving it?",
+    "answer": "Five (5) days from receipt of the Change Order.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "change orders",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q012",
+    "question": "Must the Developer continue performing services during acceptance testing of a deliverable?",
+    "answer": "Yes. Regardless of acceptance or rejection of any Milestone Deliverable, the Developer shall continue to perform all Services and deliver all Deliverables in accordance with the Delivery Schedule.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "developer duties",
+    "difficulty": "hard",
+    "question_type": "conditional"
+  },
+  {
+    "id": "q013",
+    "question": "Who are the parties to the Co-Branding and Advertising Agreement between i-Escrow and 2TheMart?",
+    "answer": "i-Escrow, Inc. and 2TheMart.com, Inc.",
+    "source": "cuad_010_CO_BRANDING_AND_ADVERTISING_AGREEMENT",
+    "contract_type": "marketing",
+    "relevant_clause": "parties",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q014",
+    "question": "What is the effective date of the i-Escrow and 2TheMart Co-Branding Agreement?",
+    "answer": "June 21, 1999.",
+    "source": "cuad_010_CO_BRANDING_AND_ADVERTISING_AGREEMENT",
+    "contract_type": "marketing",
+    "relevant_clause": "term",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q015",
+    "question": "What is the domain name for the Co-Branded Site under the i-Escrow and 2TheMart agreement?",
+    "answer": "www.iescrow.com/2TheMart.",
+    "source": "cuad_010_CO_BRANDING_AND_ADVERTISING_AGREEMENT",
+    "contract_type": "marketing",
+    "relevant_clause": "definitions",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q016",
+    "question": "What services does i-Escrow provide under the Co-Branding Agreement?",
+    "answer": "Escrow Services for auction sellers and high bidders, whereby an agent holds a buyer's money in trust until the buyer approves the delivered item, then releases the funds to the seller minus escrow fees.",
+    "source": "cuad_010_CO_BRANDING_AND_ADVERTISING_AGREEMENT",
+    "contract_type": "marketing",
+    "relevant_clause": "definitions",
+    "difficulty": "medium",
+    "question_type": "definitional"
+  },
+  {
+    "id": "q017",
+    "question": "What happens if the parties cannot agree on a Statement of Work within two months of the effective date?",
+    "answer": "Either party may, in its sole discretion, terminate the Agreement by providing written notice.",
+    "source": "cuad_010_CO_BRANDING_AND_ADVERTISING_AGREEMENT",
+    "contract_type": "marketing",
+    "relevant_clause": "termination",
+    "difficulty": "hard",
+    "question_type": "conditional"
+  },
+  {
+    "id": "q018",
+    "question": "Who are the parties to the Co-Branding Agreement between Snap Technologies and United Airlines?",
+    "answer": "Snap Technologies, Inc. (Snap) and United Airlines, Inc. (Sponsor).",
+    "source": "cuad_014_Exhibit_10_10",
+    "contract_type": "marketing",
+    "relevant_clause": "parties",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q019",
+    "question": "What is the effective date of the Snap Technologies and United Airlines Co-Branding Agreement?",
+    "answer": "June 8, 1999.",
+    "source": "cuad_014_Exhibit_10_10",
+    "contract_type": "marketing",
+    "relevant_clause": "term",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q020",
+    "question": "What services does Snap Technologies provide on its web platform?",
+    "answer": "Access to applications and other information and content regarding selecting and applying to and attending colleges and graduate and professional degree programs to end users via the World Wide Web.",
+    "source": "cuad_014_Exhibit_10_10",
+    "contract_type": "marketing",
+    "relevant_clause": "recitals",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q021",
+    "question": "Who are the parties to the VerticalNet and Impresse Co-Branding Agreement?",
+    "answer": "VerticalNet, Inc. and Impresse Corporation.",
+    "source": "cuad_016_Confidential_Treatment_Requested",
+    "contract_type": "marketing",
+    "relevant_clause": "parties",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q022",
+    "question": "What is the effective date of the VerticalNet and Impresse Co-Branding Agreement?",
+    "answer": "March 3, 2000.",
+    "source": "cuad_016_Confidential_Treatment_Requested",
+    "contract_type": "marketing",
+    "relevant_clause": "term",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q023",
+    "question": "How is Confidential Information defined in the VerticalNet and Impresse agreement?",
+    "answer": "All proprietary and confidential information of a party, including without limitation trade secrets, technical information, business information, sales information, customer and potential customer lists and identities, product sales plans, sublicense agreements, inventions, developments, discoveries, software, know-how, methods, techniques, formulae, data, processes and other trade secrets and proprietary ideas, whether or not protectable under patent, trademark, copyright or other areas of law, that the other party has access to or receives.",
+    "source": "cuad_016_Confidential_Treatment_Requested",
+    "contract_type": "nda",
+    "relevant_clause": "confidential information",
+    "difficulty": "medium",
+    "question_type": "definitional"
+  },
+  {
+    "id": "q024",
+    "question": "Is Co-Branded Content considered Confidential Information of Impresse under the VerticalNet agreement?",
+    "answer": "No. The Co-Branded Content shall not be considered Confidential Information of Impresse.",
+    "source": "cuad_016_Confidential_Treatment_Requested",
+    "contract_type": "nda",
+    "relevant_clause": "confidential information",
+    "difficulty": "medium",
+    "question_type": "conditional"
+  },
+  {
+    "id": "q025",
+    "question": "Is the VerticalNet and Impresse Agreement itself considered Confidential Information?",
+    "answer": "Yes. The Agreement itself is considered Confidential Information.",
+    "source": "cuad_016_Confidential_Treatment_Requested",
+    "contract_type": "nda",
+    "relevant_clause": "confidential information",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q026",
+    "question": "Who are the parties to the Consulting and Product Development Agreement?",
+    "answer": "Emerald Health Sciences Inc. (EHS), Emerald Health Nutraceuticals Inc. (EHN), and Michael T. Murray, N.D. (Dr. Murray).",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "parties",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q027",
+    "question": "What is the effective date of the EHS/EHN and Dr. Murray Consulting Agreement?",
+    "answer": "September 1, 2016.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "term",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q028",
+    "question": "When does the initial Services Term of the Dr. Murray Consulting Agreement end?",
+    "answer": "December 31, 2018.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "term",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q029",
+    "question": "How does the Dr. Murray Consulting Agreement renew after the initial term?",
+    "answer": "It shall be automatically renewed for successive two-year terms unless written notice of non-renewal is provided.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "term",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q030",
+    "question": "How much does EHN pay Dr. Murray per month during the first twelve months of the Consulting Agreement?",
+    "answer": "$8,333 per month, paid at the end of each month.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "compensation",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q031",
+    "question": "How many stock options does EHS grant Dr. Murray upon execution of the Consulting Agreement?",
+    "answer": "25,000 shares of EHS common stock at their then fair market value, with options vesting immediately on the date of grant.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "compensation",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q032",
+    "question": "What equity stake does Dr. Murray receive in EHN upon signing the Consulting Agreement?",
+    "answer": "Sufficient shares to represent a 5% equity ownership in EHN.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "compensation",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q033",
+    "question": "Can Dr. Murray assist in developing products that compete with EHS or EHN products?",
+    "answer": "No. Dr. Murray shall not directly assist in the development of any product competitive to products developed by EHS or EHN.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "exclusivity",
+    "difficulty": "medium",
+    "question_type": "conditional"
+  },
+  {
+    "id": "q034",
+    "question": "Who is responsible for federal and state tax withholdings under the Dr. Murray Consulting Agreement?",
+    "answer": "Dr. Murray is responsible for all federal or state withholdings and taxes, and shall indemnify EHS or EHN for any actions brought against them with respect thereto.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "taxes",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q035",
+    "question": "Does Dr. Murray receive company-sponsored benefits such as health insurance or 401(k) under the Consulting Agreement?",
+    "answer": "No. Neither Dr. Murray nor his employees or contractors receive any EHS-sponsored benefits, including paid vacation, sick leave, medical insurance, or 401(k) participation.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "benefits",
+    "difficulty": "medium",
+    "question_type": "conditional"
+  },
+  {
+    "id": "q036",
+    "question": "Can EHS or EHN use Dr. Murray's name or likeness on products without his approval?",
+    "answer": "No. EHS and EHN shall not use Dr. Murray's name or likeness on products or marketing materials unless specifically approved by Dr. Murray in writing, including via email or facsimile.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "licensing rights",
+    "difficulty": "medium",
+    "question_type": "conditional"
+  },
+  {
+    "id": "q037",
+    "question": "Who are the parties to the Armstrong Flooring Intellectual Property Agreement?",
+    "answer": "Armstrong Flooring, Inc. and AFI Licensing LLC (collectively 'Arizona') and AHF Holding, Inc. and Armstrong Hardwood Flooring Company (collectively the 'Buyer Entities').",
+    "source": "cuad_093_Exhibit_10_2",
+    "contract_type": "ip_license",
+    "relevant_clause": "parties",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q038",
+    "question": "What is the effective date of the Armstrong Flooring Intellectual Property Agreement?",
+    "answer": "December 31, 2018.",
+    "source": "cuad_093_Exhibit_10_2",
+    "contract_type": "ip_license",
+    "relevant_clause": "term",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q039",
+    "question": "How long is the Arizona Trademark License Term under the Armstrong IP Agreement?",
+    "answer": "Twenty-four (24) months from the Effective Date.",
+    "source": "cuad_093_Exhibit_10_2",
+    "contract_type": "ip_license",
+    "relevant_clause": "license term",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q040",
+    "question": "What transaction gave rise to the Armstrong Flooring IP Agreement?",
+    "answer": "The Stock Purchase Agreement dated November 14, 2018, under which Seller agreed to sell all of its right, title and interest in Armstrong Wood Products and its subsidiaries to the Buyer.",
+    "source": "cuad_093_Exhibit_10_2",
+    "contract_type": "ip_license",
+    "relevant_clause": "recitals",
+    "difficulty": "hard",
+    "question_type": "factual"
+  },
+  {
+    "id": "q041",
+    "question": "Who are the parties to the Charter Affiliate Affiliation Agreement for The TUBE Music Network?",
+    "answer": "The TUBE Music Network, Inc. (the Network) and Tribune Broadcasting Company (the Affiliate).",
+    "source": "cuad_007_Execution_Copy",
+    "contract_type": "marketing",
+    "relevant_clause": "parties",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q042",
+    "question": "What is the effective date of The TUBE Music Network Affiliation Agreement?",
+    "answer": "March 6, 2006.",
+    "source": "cuad_007_Execution_Copy",
+    "contract_type": "marketing",
+    "relevant_clause": "term",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q043",
+    "question": "When does the Initial Term of The TUBE Music Network Affiliation Agreement expire?",
+    "answer": "March 31, 2011.",
+    "source": "cuad_007_Execution_Copy",
+    "contract_type": "marketing",
+    "relevant_clause": "term",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q044",
+    "question": "How long is the Renewal Term under The TUBE Music Network Affiliation Agreement?",
+    "answer": "An additional four (4)-year period.",
+    "source": "cuad_007_Execution_Copy",
+    "contract_type": "marketing",
+    "relevant_clause": "term",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q045",
+    "question": "How far in advance must Affiliate notify Network to prevent automatic renewal of The TUBE agreement?",
+    "answer": "At least six (6) months before the expiration date of the Agreement.",
+    "source": "cuad_007_Execution_Copy",
+    "contract_type": "marketing",
+    "relevant_clause": "term",
+    "difficulty": "medium",
+    "question_type": "procedural"
+  },
+  {
+    "id": "q046",
+    "question": "Who are the parties to the Affiliate Agreement between Link Plus Corporation and Axiometric?",
+    "answer": "Link Plus Corporation (LKPL) and Axiometric, LLC.",
+    "source": "cuad_004_EXHIBIT_10_1",
+    "contract_type": "manufacturing",
+    "relevant_clause": "parties",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q047",
+    "question": "Does LKPL charge Axiometric for the office space provided under their Affiliate Agreement?",
+    "answer": "No. LKPL will provide Axiometric with a license to use office space in LKPL's corporate facility free of charge.",
+    "source": "cuad_004_EXHIBIT_10_1",
+    "contract_type": "manufacturing",
+    "relevant_clause": "office space",
+    "difficulty": "easy",
+    "question_type": "factual"
+  },
+  {
+    "id": "q048",
+    "question": "How much notice must LKPL give Axiometric to terminate the office space license if the space is needed?",
+    "answer": "Sixty (60) days notice.",
+    "source": "cuad_004_EXHIBIT_10_1",
+    "contract_type": "manufacturing",
+    "relevant_clause": "office space",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q049",
+    "question": "How much notice must Axiometric give to voluntarily terminate its office space license?",
+    "answer": "Two weeks notice, at any time.",
+    "source": "cuad_004_EXHIBIT_10_1",
+    "contract_type": "manufacturing",
+    "relevant_clause": "office space",
+    "difficulty": "medium",
+    "question_type": "factual"
+  },
+  {
+    "id": "q050",
+    "question": "Who bears the risk for Axiometric's equipment inside LKPL's facility?",
+    "answer": "Axiometric bears sole risk; LKPL has no liability for any of Axiometric's equipment, furniture, supplies or other personal property.",
+    "source": "cuad_004_EXHIBIT_10_1",
+    "contract_type": "manufacturing",
+    "relevant_clause": "office space",
+    "difficulty": "medium",
+    "question_type": "conditional"
+  },
+  {
+    "id": "q051",
+    "question": "How long do I have to reject the developer's work?",
+    "answer": "For a Milestone Deliverable, the Client has ten (10) days from the Acceptance Test Date to notify the Developer of any failures. For the Final Subject Program, the Client has fifteen (15) calendar days from the Acceptance Test Date to perform Acceptance Tests.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "acceptance",
+    "difficulty": "hard",
+    "question_type": "vague"
+  },
+  {
+    "id": "q052",
+    "question": "Can I walk away if they fail to fix the software?",
+    "answer": "Yes. If the Developer fails to correct deficiencies such that the Deliverable does not satisfy acceptance criteria within the specified periods, the Client has the option to terminate the Agreement pursuant to Section 12.",
+    "source": "cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT",
+    "contract_type": "development",
+    "relevant_clause": "termination",
+    "difficulty": "hard",
+    "question_type": "vague"
+  },
+  {
+    "id": "q053",
+    "question": "What counts as a secret under this agreement?",
+    "answer": "Confidential Information includes all proprietary and confidential information such as trade secrets, technical information, business information, sales information, customer lists, product sales plans, sublicense agreements, inventions, discoveries, software, know-how, methods, techniques, formulae, data, and other proprietary ideas, whether or not protectable under patent, trademark, copyright or other areas of law.",
+    "source": "cuad_016_Confidential_Treatment_Requested",
+    "contract_type": "nda",
+    "relevant_clause": "confidential information",
+    "difficulty": "hard",
+    "question_type": "vague"
+  },
+  {
+    "id": "q054",
+    "question": "Am I on the hook for taxes as a consultant?",
+    "answer": "Yes. Dr. Murray is solely responsible for all federal or state withholdings and taxes, and must indemnify EHS or EHN for any tax-related actions brought against them.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "taxes",
+    "difficulty": "hard",
+    "question_type": "vague"
+  },
+  {
+    "id": "q055",
+    "question": "How long is this agreement going to last?",
+    "answer": "The initial Services Term runs from September 1, 2016 to December 31, 2018. After that, the Agreement automatically renews for successive two-year terms unless a party provides written notice of non-renewal.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "term",
+    "difficulty": "hard",
+    "question_type": "vague"
+  },
+  {
+    "id": "q056",
+    "question": "Can I do the same work for a competitor?",
+    "answer": "No. Under the exclusivity clause, Dr. Murray shall not directly assist in the development of any product competitive to products developed by EHS or EHN during the term of the agreement.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "exclusivity",
+    "difficulty": "hard",
+    "question_type": "vague"
+  },
+  {
+    "id": "q057",
+    "question": "What do I get paid for this deal?",
+    "answer": "Dr. Murray receives: $8,333 per month for the first 12 months; 25,000 EHS stock options at fair market value vesting immediately on execution and each anniversary; a 5% equity ownership in EHN; and royalties on net sales of Dr. Murray Products based on a tiered royalty schedule.",
+    "source": "cuad_039_Consulting_and_Product_Development_Agreement",
+    "contract_type": "consulting",
+    "relevant_clause": "compensation",
+    "difficulty": "hard",
+    "question_type": "vague"
+  },
+  {
+    "id": "q058",
+    "question": "What if we can't agree on how to set things up?",
+    "answer": "If the parties cannot agree on a Statement of Work within two months following the Effective Date, either party may, in its sole discretion, terminate the Agreement by providing written notice.",
+    "source": "cuad_010_CO_BRANDING_AND_ADVERTISING_AGREEMENT",
+    "contract_type": "marketing",
+    "relevant_clause": "termination",
+    "difficulty": "hard",
+    "question_type": "vague"
+  },
+  {
+    "id": "q059",
+    "question": "Will this deal renew automatically?",
+    "answer": "Yes. If the Affiliate fails to notify the Network of its desire to terminate at least six (6) months before the expiration date, the Agreement will automatically renew for an additional four (4)-year Renewal Term under the same terms and conditions.",
+    "source": "cuad_007_Execution_Copy",
+    "contract_type": "marketing",
+    "relevant_clause": "term",
+    "difficulty": "hard",
+    "question_type": "vague"
+  },
+  {
+    "id": "q060",
+    "question": "Can they use my logo or brand without asking me?",
+    "answer": "No. Under the Armstrong IP Agreement, the use of trademarks and brand features is strictly governed by the IP Agreement. Neither party may use the other's marks outside the scope and term defined in the agreement. The Arizona Trademark License Term is limited to twenty-four (24) months from the Effective Date.",
+    "source": "cuad_093_Exhibit_10_2",
+    "contract_type": "ip_license",
+    "relevant_clause": "license term",
+    "difficulty": "hard",
+    "question_type": "vague"
+  }
+]

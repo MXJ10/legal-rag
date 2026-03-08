@@ -35,7 +35,7 @@ def chunk_contains_answer(chunks: list[dict], qa: dict) -> bool:
     """
     source = qa.get("source", "").lower()
     clause = qa.get("relevant_clause", "").lower()
-    answer_keywords = qa.get("answer", "").lower().split()[:5]  # first 5 words
+    answer_keywords = qa.get("ground_truth", qa.get("answer", "")).lower().split()[:5]  # first 5 words
 
     for chunk in chunks:
         chunk_text = chunk["text"].lower()
@@ -146,7 +146,7 @@ def run_evaluation(mode: str = "both", qa_subset: list[dict] = None) -> dict:
             # Answer accuracy
             accuracy = judge_answer_accuracy(
                 qa["question"],
-                qa["answer"],
+                qa.get("ground_truth", qa.get("answer", "")),
                 result["answer"],
             )
 
@@ -163,7 +163,7 @@ def run_evaluation(mode: str = "both", qa_subset: list[dict] = None) -> dict:
                 "num_retries": result.get("num_retries", 0),
                 "rewrites_used": result.get("rewrites_used", []),
                 "generated_answer": result["answer"],
-                "ground_truth": qa["answer"],
+                "ground_truth": qa.get("ground_truth", qa.get("answer", "")),
             }
             results[m].append(row)
             
@@ -233,10 +233,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["baseline", "agentic", "both"], default="both")
     parser.add_argument("--limit", type=int, default=None, help="Limit to N questions for quick test")
+    parser.add_argument("--offset", type=int, default=0, help="Skip first N questions before running")
+    parser.add_argument("--qa-file", type=Path, default=None, help="Path to QA pairs JSON file")
     args = parser.parse_args()
 
-    qa = load_qa_pairs()
-    if args.limit:
-        qa = qa[:args.limit]
+    qa = load_qa_pairs(args.qa_file)
+    if args.offset or args.limit:
+        start = args.offset or 0
+        end = (start + args.limit) if args.limit else None
+        qa = qa[start:end]
 
     run_evaluation(mode=args.mode, qa_subset=qa)

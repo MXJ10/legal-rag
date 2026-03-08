@@ -1,0 +1,324 @@
+{
+  "timestamp": "20260308_103307",
+  "mode": "agentic",
+  "summary": {
+    "agentic": {
+      "recall_at_5": 0.7333,
+      "accuracy_exact": 0.3333,
+      "accuracy_partial": 0.3333,
+      "avg_confidence": 0.7567,
+      "avg_retries": 2.6667,
+      "n": 15
+    }
+  },
+  "details": {
+    "baseline": [],
+    "agentic": [
+      {
+        "id": "q021",
+        "question": "If the software in the Pelican Delivers project keeps crashing and won't pass testing, can Pelican just walk away from the deal with Seattle Software Developers?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7822,
+        "retrieval_method": "paraphrase",
+        "num_retries": 3,
+        "rewrites_used": [
+          "In the event that the Software Product fails to meet the Testing and Quality Assurance Requirements, thereby rendering it non-conforming to the Specifications and Deliverables outlined in this Agreement, may the Client (Pelican) unilaterally terminate this Contract and withdraw from further obligations to the Software Provider (Seattle Software Developers)?",
+          "Does the contract contain a force majeure clause that would allow Pelican to terminate the agreement due to unforeseen circumstances or events beyond their control?",
+          "Is there a material breach clause that would permit Pelican to cancel the contract if Seattle Software Developers fail to deliver functional software?",
+          "Does the contract include a termination for convenience clause that would allow Pelican to unilaterally end the agreement without penalty or liability?",
+          "If the software in the Pelican Delivers project keeps crashing and won't pass testing, can Pelican just terminate the contract with Seattle Software Developers under the terms of the Software Development Agreement (cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT)?"
+        ],
+        "generated_answer": "Under Section 3.6 of the 'cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT', Client has the option to either repeat the procedures set forth in Section 3.4 or terminate the Agreement pursuant to Section 8.",
+        "ground_truth": "Yes. Under Section 3.6, if Developer repeatedly fails to meet acceptance criteria for a Milestone Deliverable or Modified Deliverable within the specified cure periods, Client has the option to terminate the Agreement pursuant to Section 8. Similarly, under Section 3.7, if the final Subject Program still fails after two rounds of corrections, Client may terminate pursuant to Section 12."
+      },
+      {
+        "id": "q022",
+        "question": "Can Pelican Delivers fire Seattle Software Developers on the spot if they discover the developers shared Pelican's secret business information with a competitor?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": false,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7262,
+        "retrieval_method": "disambiguation",
+        "num_retries": 3,
+        "rewrites_used": [
+          "May Pelican Delivers terminate its contractual obligations with Seattle Software Developers with immediate effect in the event that they disclose confidential information to a third party, thereby breaching the confidentiality provisions of this agreement.",
+          "Does the contract between Pelican Delivers and Seattle Software Developers contain a non-disclosure agreement (NDA) clause that prohibits sharing confidential information?",
+          "If an NDA clause exists, does it specify consequences for breaching the agreement, including the possibility of immediate termination?",
+          "Does the contract include a termination clause that allows Pelican Delivers to terminate the agreement with Seattle Software Developers on short notice, potentially \"on the spot\"?",
+          "Can the Seattle Software Developers be terminated on the spot if they disclose cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT confidential information to a competitor?"
+        ],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "Yes. Under Section 11.2(c), misappropriation or unauthorized disclosure of Confidential Information by the Receiving Party is grounds for immediate termination by notice, without any cure period."
+      },
+      {
+        "id": "q023",
+        "question": "If Pelican Delivers wants out of their software deal with Seattle Software Developers but there's no problem with the work, how much heads-up do they need to give?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "vague",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7847,
+        "retrieval_method": "decomposition",
+        "num_retries": 3,
+        "rewrites_used": [
+          "What is the minimum notice period required for Pelican Delivers to terminate the software agreement with Seattle Software Developers without cause, in accordance with the terms and conditions of the agreement?",
+          "What is the notice period specified in the termination clause of the contract between Pelican Delivers and Seattle Software Developers?",
+          "Is the termination clause in the contract an \"anytime\" clause or does it require a specific reason for termination?",
+          "Does the contract contain a \"material breach\" clause that would allow Pelican Delivers to terminate the contract without notice if Seattle Software Developers have failed to meet their obligations?",
+          "If Seattle Software Developers wants out of their software development agreement with Pelican Delivers but there's no problem with the work, how much heads-up do they need to give?"
+        ],
+        "generated_answer": "Under the 'cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT', Pelican Delivers must provide up to three (3) months of Fee assistance to Client upon termination (Section 11.3).",
+        "ground_truth": "Under Section 11.1, either party may terminate the Agreement without cause at any time upon two weeks written notice to the other party."
+      },
+      {
+        "id": "q024",
+        "question": "Under the deal between Emerald Health and Dr. Murray, can Dr. Murray keep getting royalty money even after he stops doing the consulting work?",
+        "contract_type": "Consulting and Product Development Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7361,
+        "retrieval_method": "baseline",
+        "num_retries": 3,
+        "rewrites_used": [
+          "Does Dr. Murray's entitlement to receive royalty payments pursuant to the agreement between Emerald Health and Dr. Murray continue beyond the cessation of his consulting services under the terms of the contract?",
+          "Does the contract between Emerald Health and Dr. Murray contain a clause that specifies the duration of Dr. Murray's consulting work and its relationship to royalty payments?",
+          "Is there a clause in the contract that addresses the continuation of royalty payments after the termination of Dr. Murray's consulting work?",
+          "Does the contract contain a clause that defines the circumstances under which Dr. Murray's royalty payments may be terminated or suspended?",
+          "Can Dr. Murray continue to receive royalty payments under the cuad_039_Consulting_and_Product_Development_Agreement after he stops performing consulting work?"
+        ],
+        "generated_answer": "Under the 'cuad_039_Consulting_and_Product_Development_Agreement', Dr. Murray can continue to receive royalty payments in perpetuity as long as the Dr. Murray Products are being sold (Section 6.2(b)).",
+        "ground_truth": "Yes. Under Section 6.3(c), if EHS or EHN terminates the Agreement, the royalty payment obligations under Section 5.3 survive termination, meaning Dr. Murray continues to receive royalties on Net Sales of Dr. Murray Products for as long as those products are sold, even after the Services Term ends."
+      },
+      {
+        "id": "q025",
+        "question": "If Full Sail Brewing Company wants to stop working with Reed's Inc. on the ginger-based drinks project because Reed's missed some of their obligations, how long does Reed's have to fix the problem before Full Sail can pull the plug?",
+        "contract_type": "Recipe Development Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": false,
+        "accuracy": "CORRECT",
+        "confidence": 0.7986,
+        "retrieval_method": "paraphrase",
+        "num_retries": 3,
+        "rewrites_used": [
+          "What is the duration of the cure period, if any, within which Reed's Inc. must rectify its non-compliance with the terms of the agreement prior to Full Sail Brewing Company's entitlement to terminate the contract for breach?",
+          "What specific obligations did Reed's Inc. miss in the contract with Full Sail Brewing Company, and what are the consequences for non-compliance?",
+          "What is the notice period or cure period specified in the contract for Reed's Inc. to rectify the missed obligations before Full Sail can take action?",
+          "Is there a termination clause in the contract that outlines the conditions under which Full Sail Brewing Company can terminate the agreement with Reed's Inc. due to non-compliance?",
+          "If Full Sail Brewing Company wants to stop working with Reed's Inc. on the ginger-based drinks project because Reed's missed some of their obligations, how long does Reed's have to fix the problem before Full Sail can terminate the agreement under Exhibit 10.29?"
+        ],
+        "generated_answer": "Under the 'cuad_036_Exhibit_10_29' (nda), Reed's Inc. has 30 days to cure the breach after receiving written notice from Full Sail Brewing Company.",
+        "ground_truth": "Under Section 8(b) of the Recipe Development Agreement, if Reed's fails to comply with any requirements or obligations, Full Sail must first give written notice identifying the non-compliance. Reed's then has 30 days to cure the non-compliance before Full Sail may terminate the Agreement."
+      },
+      {
+        "id": "q026",
+        "question": "Under the MusclePharm / Arnold Schwarzenegger deal, can MusclePharm keep using Arnold's face in ads for a while even after the contract runs out?",
+        "contract_type": "Endorsement Licensing and Co-Branding Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7439,
+        "retrieval_method": "decomposition",
+        "num_retries": 3,
+        "rewrites_used": [
+          "Does the MusclePharm / Arnold Schwarzenegger agreement contain any provisions for the continued use of Arnold Schwarzenegger's likeness or image in advertising materials after the expiration or termination of the contract.",
+          "Does the contract contain a clause specifying the duration of Arnold's endorsement, and if so, does it include a provision for continued use of his image after the contract expires?",
+          "Is there a clause in the contract that addresses the concept of \"reasonable notice\" or \"reasonable use\" of Arnold's image after the contract has ended?",
+          "Does the contract contain a clause that grants MusclePharm a perpetual license to use Arnold's image, or a clause that allows for continued use under specific circumstances?",
+          "Can MusclePharm continue to use Arnold Schwarzenegger's likeness in advertisements under the terms of the cuad_021_ENDORSEMENT_LICENSING_AND_CO_BRANDING_AGREEMENT after the contract has expired?"
+        ],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "Yes. Under Section 4(d), MusclePharm has a six (6) month Use-Up Period after the Agreement's expiration during which it may use Endorser's Name and Appearance in advertisements and promotional materials created before the expiration date. However, MusclePharm may not create new advertising during this period."
+      },
+      {
+        "id": "q027",
+        "question": "Can Joe Theismann cancel his deal with Bizzingo if they stop paying him what they owe, and how much time do they have to settle up before he can walk?",
+        "contract_type": "Celebrity Endorsement Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": true,
+        "accuracy": "CORRECT",
+        "confidence": 0.7783,
+        "retrieval_method": "paraphrase",
+        "num_retries": 3,
+        "rewrites_used": [
+          "Does Joe Theismann have the right to terminate the agreement with Bizzingo for non-payment of compensation, and what constitutes a reasonable period for Bizzingo to cure the default before Theismann may exercise his right to rescind the contract?",
+          "Does the contract between Joe Theismann and Bizzingo contain a clause specifying the consequences of non-payment, such as a termination clause or a force majeure clause?",
+          "Is there a specific time frame or notice period mentioned in the contract for Bizzingo to rectify the non-payment before Joe Theismann can cancel the deal?",
+          "Does the contract include a clause governing the payment terms, such as the frequency, amount, and method of payment, to determine if Bizzingo has indeed stopped paying what they owe?",
+          "Can Joe Theismann cancel his celebrity endorsement agreement with Bizzingo if they stop paying him what they owe, and how much time do they have to settle up before he can walk?"
+        ],
+        "generated_answer": "Under the 'cuad_069_CELEBRITY_ENDORSEMENT_AGREEMENT', Theismann can terminate the Agreement upon thirty (30) days prior written notice to Bizzingo if they fail to cure a breach, specifically non-payment of the Royalty (Section 10, Excerpt 2). Bizzingo has 30 days to settle up before Theismann can terminate the Agreement.",
+        "ground_truth": "Yes. Under Section 10(a)(iii), Theismann may terminate the Agreement upon thirty (30) days prior written notice if Bizzingo fails to make payment of any Royalties due within thirty (30) days after the due date."
+      },
+      {
+        "id": "q028",
+        "question": "Under the VGrab Asia / developer agreement for the Duesey Coffee app, if VGrab decides to end the project early, do they still have to pay the developers?",
+        "contract_type": "Mobile Application Development Agreement",
+        "difficulty": "easy",
+        "question_type": "vague",
+        "recall_hit": false,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7341,
+        "retrieval_method": "paraphrase",
+        "num_retries": 3,
+        "rewrites_used": [
+          "Pursuant to the VGrab Asia/developer agreement for the Duesey Coffee app, does the obligation to make payments to the developers survive termination of the project prior to its scheduled completion date?",
+          "Does the VGrab Asia / developer agreement contain a clause specifying the circumstances under which VGrab can terminate the project early?",
+          "If VGrab terminates the project early, does the agreement require them to pay the developers for work completed prior to termination?",
+          "Are there any clauses in the agreement that specify a minimum payment or compensation to the developers in the event of early termination?",
+          "If the most likely intended contract is cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT, the rewritten question would be:\n\n\"Under the Software Development Agreement for the Duesey Coffee app, if VGrab decides to end the project early, do they still have to pay the developers?\""
+        ],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "Yes. Under Clause 13, if VAL (VGrab) terminates the Agreement, VAL must compensate the Developer up to the date of termination with a fee calculated on a Pro-rata basis."
+      },
+      {
+        "id": "q029",
+        "question": "Under the ESSI / Stephen Marley endorsement deal, what happens if Stephen Marley publishes a press release about ESSI without permission?",
+        "contract_type": "Endorsement Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": true,
+        "accuracy": "CORRECT",
+        "confidence": 0.7649,
+        "retrieval_method": "paraphrase",
+        "num_retries": 3,
+        "rewrites_used": [
+          "Pursuant to the terms of the Endorsement Agreement between ESSI and Stephen Marley, what are the consequences and remedies available to ESSI in the event that Stephen Marley issues a public statement or press release regarding ESSI without prior written consent or authorization.",
+          "Does the ESSI / Stephen Marley endorsement deal contain a clause that grants ESSI exclusive rights to control the publication of press releases?",
+          "If so, does the deal specify any consequences for Stephen Marley's breach of this clause, such as damages or termination of the agreement?",
+          "Is there a clause in the deal that addresses the specific scenario of Stephen Marley publishing a press release without permission, including any applicable remedies or penalties?",
+          "What happens if Stephen Marley publishes a press release about ESSI without permission under the terms of the cuad_070_ENDORSEMENT_AGREEMENT?"
+        ],
+        "generated_answer": "Under the 'cuad_070_ENDORSEMENT_AGREEMENT', if Stephen Marley publishes a press release about ESSI without permission, this Agreement shall be null and void (Paragraph 9) and any outstanding balance owed to Talent shall be voided and the 1,000,000 Shares of ESSI common stock issued to Talent returned to the Company.",
+        "ground_truth": "Under Section 9.1, if Talent independently publishes a press release about ESSI without first obtaining written consent and approval from ESSI's management and counsel, the Agreement becomes null and void, any outstanding balance owed to Talent is voided, and the 1,000,000 shares of ESSI common stock issued to Talent must be returned to the Company."
+      },
+      {
+        "id": "q030",
+        "question": "Under the i-Escrow / 2TheMart co-branding deal, how quickly can one party shut down the arrangement if the other company gets sold to a competitor?",
+        "contract_type": "Co-Branding and Advertising Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": true,
+        "accuracy": "CORRECT",
+        "confidence": 0.7997,
+        "retrieval_method": "paraphrase",
+        "num_retries": 3,
+        "rewrites_used": [
+          "Pursuant to the i-Escrow / 2TheMart Co-Branding Agreement, what is the applicable notice period and termination procedure in the event of a change in control of one party, wherein such party is acquired by a competitor or a third-party entity?",
+          "What are the conditions for termination of the i-Escrow / 2TheMart co-branding deal, specifically in relation to a change in ownership of one of the parties?",
+          "Are there any specific provisions in the contract that address the scenario of a party being sold to a competitor, and if so, what are the implications for the co-branding arrangement?",
+          "Does the contract contain any clauses that would trigger a notice period or a waiting period before the co-branding arrangement can be terminated in the event of a change in ownership?",
+          "Under the cuad_010_CO_BRANDING_AND_ADVERTISING_AGREEMENT, how quickly can one party shut down the arrangement if the other company gets sold to a competitor?"
+        ],
+        "generated_answer": "Under the 'cuad_010_CO_BRANDING_AND_ADVERTISING_AGREEMENT', either party may terminate the agreement if a majority of the equity securities of either company are acquired by another company, without liability, by giving a thirty-day notice (Section 8.3).",
+        "ground_truth": "Under Section 8.3, if a majority of the equity securities of either 2TheMart or i-Escrow are acquired by another company during the term, either company may terminate the Agreement without liability by giving a thirty (30) days written notice to the other party."
+      },
+      {
+        "id": "q031",
+        "question": "Under the FreeCook / Mitchell's Web Advance agreement, if Natalija Tunevic requests significant changes to the website design after the Scope of Work is agreed, does Mitchell's Web Advance have to do the extra work for free?",
+        "contract_type": "Website Design and Development Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": false,
+        "accuracy": "INCORRECT",
+        "confidence": 0.5795,
+        "retrieval_method": "disambiguation",
+        "num_retries": 3,
+        "rewrites_used": [
+          "Pursuant to the FreeCook / Mitchell's Web Advance agreement, does Mitchell's Web Advance have a contractual obligation to perform additional work, without additional compensation, in the event that Natalija Tunevic requests significant changes to the website design after the Scope of Work has been finalized and agreed upon.",
+          "Does the FreeCook / Mitchell's Web Advance agreement contain a clause that explicitly states Mitchell's Web Advance is obligated to perform extra work for free in the event of significant changes to the website design after the Scope of Work is agreed?",
+          "Is there a clause in the agreement that limits or waives Mitchell's Web Advance's liability for additional work requested by Natalija Tunevic after the Scope of Work is agreed?",
+          "Does the agreement contain a clause that defines the process for requesting and approving changes to the website design, and if so, does it specify any consequences for requesting significant changes after the Scope of Work is agreed?",
+          "Under the cuad_089_Website_Design_Development_and_Hosting_Agreement, if Natalija Tunevic requests significant changes to the website design after the Scope of Work is agreed, does Mitchell's Web Advance have to do the extra work for free?"
+        ],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "No. Under Section 1(a), any changes to the Scope of Work requiring Additional Work \u2014 defined as additions or revisions of pages, graphics, features, or substantial revisions requiring more than two rounds of revisions \u2014 must be submitted and accepted as a Change Order, and the costs are added to the Contract Price."
+      },
+      {
+        "id": "q032",
+        "question": "Under the Bizzingo / Theismann endorsement deal, can Bizzingo terminate the agreement if Theismann gets convicted of a crime?",
+        "contract_type": "Celebrity Endorsement Agreement",
+        "difficulty": "easy",
+        "question_type": "vague",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7813,
+        "retrieval_method": "paraphrase",
+        "num_retries": 3,
+        "rewrites_used": [
+          "Pursuant to the terms of the Bizzingo / Theismann endorsement agreement, does the occurrence of a conviction against Theismann for a criminal offense constitute a material breach of contract, thereby permitting Bizzingo to exercise its right to terminate the agreement.",
+          "Does the Bizzingo / Theismann endorsement deal contain a clause specifying the consequences of a breach of contract, including criminal convictions?",
+          "Is Theismann's criminal conviction considered a material breach of the contract, triggering the termination clause?",
+          "Does the contract specify a notice period or other procedural requirements for terminating the agreement in the event of a breach?",
+          "Can cuad_069_CELEBRITY_ENDORSEMENT_AGREEMENT be terminated if Theismann gets convicted of a crime?"
+        ],
+        "generated_answer": "Under the cuad_069_CELEBRITY_ENDORSEMENT_AGREEMENT, Bizzingo can terminate the agreement if Theismann engages in illegal, immoral, or criminal conduct resulting in a felony conviction (Section 10(a)(i)).",
+        "ground_truth": "Yes. Under Section 10(b)(i), Bizzingo may terminate the Agreement upon thirty (30) days prior written notice if Theismann engages in illegal, immoral, or criminal conduct resulting in a felony conviction, or engages in conduct that could bring him into public disrepute."
+      },
+      {
+        "id": "q033",
+        "question": "Under the Reed's / Full Sail Recipe Development Agreement, who pays for the process of developing the product recipes, and who bears the cost of Reed's own people participating in the project?",
+        "contract_type": "Recipe Development Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7887,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "Company (Full Sail) is responsible for all costs relating to the development of the Recipes and Deliverables. However, Reed's bears the costs and expenses relating to the involvement of Reed's own personnel and contractors, per Section 2 of the Agreement."
+      },
+      {
+        "id": "q034",
+        "question": "Under the Eco Science Solutions / Stephen Marley Endorsement Agreement, if Talent publishes a press release about ESSI without prior written consent, what happens to the Agreement and any outstanding payments?",
+        "contract_type": "Celebrity Endorsement Agreement",
+        "difficulty": "medium",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7882,
+        "retrieval_method": "paraphrase",
+        "num_retries": 1,
+        "rewrites_used": [
+          "Pursuant to the Eco Science Solutions / Stephen Marley Endorsement Agreement, what are the consequences and remedies if Talent issues a press release regarding ESSI without first obtaining the prior written consent of Eco Science Solutions, and what effect does such breach have on the Agreement's validity and any outstanding payment obligations?"
+        ],
+        "generated_answer": "Under the cuad_070_ENDORSEMENT_AGREEMENT, if Talent publishes a press release about ESSI without prior written consent, this Agreement shall be null and void (Clause 10.A) and any outstanding balance owed to Talent shall be voided (Clause 10.A).",
+        "ground_truth": "Under Paragraph 9.1, the Agreement becomes null and void, any outstanding balance owed to Talent is voided, and the 1,000,000 ESSI shares issued to Talent must be returned."
+      },
+      {
+        "id": "q035",
+        "question": "In the VGrab / Duesey Coffee app development deal, who is responsible if the app turns out to not meet WeChat's technical compliance requirements?",
+        "contract_type": "Mobile Application Development Agreement",
+        "difficulty": "medium",
+        "question_type": "vague",
+        "recall_hit": true,
+        "accuracy": "CORRECT",
+        "confidence": 0.7637,
+        "retrieval_method": "baseline",
+        "num_retries": 3,
+        "rewrites_used": [
+          "In the event that the VGrab / Duesey Coffee mobile application fails to comply with the technical requirements of WeChat, which requirements are hereby incorporated by reference, which party shall be liable for any resulting damages or penalties.",
+          "What is the definition of \"technical compliance requirements\" in the WeChat guidelines, and does the contract explicitly reference these requirements?",
+          "Does the contract contain any indemnification clauses that would shift the liability for non-compliance from VGrab to Duesey Coffee or vice versa?",
+          "Are there any specific warranties or representations made by either party regarding the app's compliance with WeChat's technical requirements, and if so, what are the consequences of breach?",
+          "In the cuad_054_MOBILE_APPLICATION_DEVELOPMENT contract, who is responsible if the app turns out to not meet WeChat's technical compliance requirements?"
+        ],
+        "generated_answer": "Under the Mobile Application Development Agreement (VAL/MAD/PVTINV/DC/190305/1), the Developer shall ensure the app is technically compliant to WeChat's App guidelines, and VAL's business compliance (Excerpt 1 from 'cuad_054_MOBILE_APPLICATION_DEVELOPMENT'). The Developer will be responsible and liable for the product's business compliance with WeChat Mini Program and Payment guidelines (Excerpt 1 from 'cuad_054_MOBILE_APPLICATION_DEVELOPMENT').",
+        "ground_truth": "Under Clause 6.5, the Developer is responsible and liable for the product's business compliance with WeChat Mini Program and Payment guidelines. Being the Developer of the project, Developer accepts this responsibility."
+      }
+    ]
+  }
+}

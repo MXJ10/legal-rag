@@ -94,21 +94,54 @@ def retrieve(
             "distance": round(dist, 4),
         })
 
+    chunks = rerank_chunks_by_metadata(chunks, query)
     return chunks
+
+
+def extract_entity_mentions(query: str) -> list[str]:
+    """Extract capitalized word mentions from query to identify the target contract."""
+    import re
+    stop_words = {"who", "what", "when", "where", "why", "how", "does", "did",
+                  "is", "are", "was", "the", "under", "between", "in", "for",
+                  "to", "of", "and", "or", "a", "an", "can", "will", "my"}
+    words = re.findall(r'\b[A-Z][a-zA-Z]+\b', query)
+    return [w.lower() for w in words if w.lower() not in stop_words]
+
+
+def rerank_chunks_by_metadata(chunks: list[dict], query: str, boost: float = 0.15) -> list[dict]:
+    """
+    Boost chunks whose source contract name contains entity mentions from the query.
+    Fixes wrong-contract retrieval when the user names a company in their question.
+    """
+    entities = extract_entity_mentions(query)
+    if not entities:
+        return chunks
+
+    boosted = []
+    for chunk in chunks:
+        source = chunk["source"].lower()
+        score = chunk["score"]
+        if any(entity in source for entity in entities):
+            score = min(1.0, score + boost)
+        boosted.append({**chunk, "score": score})
+
+    boosted.sort(key=lambda c: c["score"], reverse=True)
+    return boosted
 
 
 def compute_retrieval_confidence(chunks: list[dict]) -> float:
     """
-    Heuristic confidence score for retrieved chunks.
-    Used by the agentic loop to decide whether to rewrite query.
-    
-    Score = average of top-3 similarities.
-    Range: 0.0 (terrible retrieval) → 1.0 (perfect match)
+    Heuristic confidence score. Accounts for top score quality and spread.
+    Range: 0.0 (terrible) → 1.0 (perfect match)
     """
     if not chunks:
         return 0.0
-    top3_scores = sorted([c["score"] for c in chunks], reverse=True)[:3]
-    return round(sum(top3_scores) / len(top3_scores), 4)
+    scores = sorted([c["score"] for c in chunks], reverse=True)
+    top_score = scores[0]
+    avg_top3 = sum(scores[:3]) / min(3, len(scores))
+    spread_penalty = (top_score - scores[-1]) if len(scores) > 1 else 0
+    confidence = (top_score * 0.6) + (avg_top3 * 0.3) + (spread_penalty * 0.1)
+    return round(min(confidence, 1.0), 4)
 
 
 # ── LLM answer generation ──────────────────────────────────────────────────────
@@ -120,21 +153,23 @@ def build_prompt(question: str, chunks: list[dict]) -> str:
         )
     context = "\n\n---\n\n".join(context_parts)
 
-    return f"""You are a helpful legal contract analyst. A user has asked a question about their contracts.
-Use the contract excerpts below to answer. Synthesize information across excerpts if needed.
+    return f"""You are a precise legal contract analyst.
 
-Instructions:
-1. Write a clear, direct answer in 2-4 sentences.
-2. If the exact answer is not stated but can be reasonably inferred from the excerpts, say so.
-3. End with "Source: [Excerpt X from 'filename']" citing the most relevant excerpt(s).
-4. Only say "Not found in provided excerpts" if the topic is completely absent from all excerpts.
+RULES:
+- Answer in 2-3 sentences maximum
+- State the answer directly — no preamble
+- Cite the contract name in your answer (e.g. "Under the DOT COM LLC agreement...")
+- If the answer spans multiple clauses, list them concisely
+- If the answer is truly not found, say exactly: "Not found in the provided contracts."
+- Never repeat the same information twice
+- Never say "based on the provided excerpts" or similar filler phrases
 
 CONTRACT EXCERPTS:
 {context}
 
 QUESTION: {question}
 
-ANSWER:"""
+DIRECT ANSWER:"""
 
 
 def call_llm(prompt: str) -> str:

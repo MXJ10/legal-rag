@@ -35,9 +35,10 @@ GROQ_MODEL       = "llama-3.1-8b-instant"   # answer generation (500K/day free)
 GROQ_JUDGE_MODEL = "llama-3.1-8b-instant"   # judge  (max_tokens=10, negligible)
 
 # ── Agentic loop ───────────────────────────────────────────────────────────────
-MAX_RETRIES         = 3
-CONFIDENCE_THRESHOLD = 0.4   # below this → trigger query rewrite
-RETRIEVAL_TOP_K     = 5
+MAX_RETRIES          = 3
+CONFIDENCE_THRESHOLD = 0.50  # below this → trigger query rewrite
+RETRIEVAL_TOP_K      = 5
+MIN_RETRIEVAL_SCORE  = 0.55  # top chunk below this → retrieval is genuinely poor
 
 # ── Evaluation ────────────────────────────────────────────────────────────────
 RECALL_K = 5   # Recall@5

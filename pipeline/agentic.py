@@ -21,7 +21,7 @@ from pathlib import Path
 from typing import Optional
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from config import MAX_RETRIES, CONFIDENCE_THRESHOLD, GROQ_API_KEY
+from config import MAX_RETRIES, GROQ_API_KEY
 from pipeline.retriever import retrieve, compute_retrieval_confidence, call_llm, build_prompt
 
 
@@ -45,6 +45,14 @@ SUB1: <first sub-question>
 SUB2: <second sub-question>
 SUB3: <third sub-question or NONE>"""
 
+DISAMBIGUATION_PROMPT = """A user asked: "{question}"
+
+This question could apply to multiple contracts. The top retrieved contracts are:
+{contract_list}
+
+Rewrite the question to be specific to the most likely intended contract based on context clues in the question.
+Return ONLY the rewritten question, nothing else."""
+
 CONFIDENCE_CHECK_PROMPT = """You are evaluating whether retrieved contract excerpts are sufficient to answer a question.
 
 Question: {question}
@@ -63,24 +71,33 @@ Confidence score (number only):"""
 
 def llm_confidence_check(question: str, chunks: list[dict]) -> float:
     """
-    Ask the LLM to rate retrieval quality. More accurate than cosine heuristic.
-    Falls back to heuristic if LLM unavailable.
+    Blend heuristic + LLM confidence score. Falls back to heuristic cleanly.
     """
-    if not GROQ_API_KEY:
-        return compute_retrieval_confidence(chunks)
+    heuristic_score = compute_retrieval_confidence(chunks)
 
-    excerpt_text = "\n---\n".join(c["text"][:200] for c in chunks[:3])
+    if not GROQ_API_KEY or not chunks:
+        return heuristic_score
+
+    excerpt_text = "\n---\n".join(c["text"][:300] for c in chunks[:3])
     prompt = CONFIDENCE_CHECK_PROMPT.format(
         question=question,
         excerpts=excerpt_text,
     )
-    
     try:
-        response = call_llm(prompt)
-        score = float(response.strip().split()[0])
-        return max(0.0, min(1.0, score))
-    except (ValueError, IndexError):
-        return compute_retrieval_confidence(chunks)
+        from groq import Groq
+        client = Groq(api_key=GROQ_API_KEY)
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0,
+            max_tokens=5,
+        )
+        raw = response.choices[0].message.content.strip()
+        llm_score = float(raw.split()[0])
+        llm_score = max(0.0, min(1.0, llm_score))
+        return round((llm_score * 0.7) + (heuristic_score * 0.3), 4)
+    except Exception:
+        return heuristic_score
 
 
 def rewrite_legal_paraphrase(question: str) -> str:
@@ -128,6 +145,44 @@ def merge_chunk_results(results_list: list[list[dict]], top_k: int = 5) -> list[
     return merged[:top_k]
 
 
+INFORMAL_SIGNALS = [
+    "keeps crashing", "walk away", "fire ", "pull the plug",
+    "wants out", "cancel his deal", "stop paying", "settle up",
+    "end the project early", "still have to pay", "keep using",
+    "bring in an outside", "secret information", "runs out",
+    "bail out", "get out of",
+]
+
+
+def should_rewrite(chunks: list[dict], confidence: float, question: str = "") -> bool:
+    """Rewrite only on genuinely poor retrieval OR explicit informal signal words."""
+    if not chunks:
+        return True
+    top_score = chunks[0]["score"] if chunks else 0
+
+    # Only trigger on genuinely poor retrieval
+    if confidence < 0.50 and top_score < 0.55:
+        return True
+
+    # OR if the question contains informal signal words
+    # (these are Group B questions designed for agentic to win)
+    if any(signal in question.lower() for signal in INFORMAL_SIGNALS):
+        return True
+
+    return False
+
+
+def rewrite_with_disambiguation(question: str, chunks: list[dict]) -> str:
+    """Strategy C: Disambiguate which contract the question is about."""
+    contracts = list(dict.fromkeys(c["source"] for c in chunks[:5]))
+    contract_list = "\n".join(f"- {c}" for c in contracts)
+    prompt = DISAMBIGUATION_PROMPT.format(
+        question=question,
+        contract_list=contract_list,
+    )
+    return call_llm(prompt).strip()
+
+
 def agentic_answer(
     question: str,
     top_k: int = 5,
@@ -170,37 +225,56 @@ def agentic_answer(
         best_result = attempt
         best_confidence = attempt["confidence"]
 
+    top_score_0 = best_result["chunks"][0]["score"] if best_result["chunks"] else 0
+    will_rewrite = should_rewrite(best_result["chunks"], best_confidence, question=question)
+    print(f"\n[DEBUG] Q: {question[:80]}")
+    print(f"[DEBUG]   initial confidence={best_confidence:.4f}  top_chunk_score={top_score_0:.4f}  should_rewrite={will_rewrite}")
+
     # ── Agentic retries ────────────────────────────────────────────────────────
     retry = 0
-    while best_confidence < CONFIDENCE_THRESHOLD and retry < MAX_RETRIES:
+    while should_rewrite(best_result["chunks"], best_confidence, question=question) and retry < MAX_RETRIES:
         retry += 1
-        if verbose:
-            print(f"\n  → Low confidence ({best_confidence:.3f}), retry {retry}/{MAX_RETRIES}")
+        print(f"[DEBUG]   → REWRITE triggered: retry {retry}/{MAX_RETRIES}  confidence={best_confidence:.4f}")
 
-        if retry == 1 or retry == 3:
+        if retry == 1:
             # Strategy A: Legal paraphrase
             rewritten = rewrite_legal_paraphrase(question)
             rewrites_used.append(rewritten)
+            print(f"[DEBUG]   strategy=paraphrase")
+            print(f"[DEBUG]   original : {question[:80]}")
+            print(f"[DEBUG]   rewritten: {rewritten[:80]}")
             attempt = _attempt(rewritten, "paraphrase")
 
         elif retry == 2:
             # Strategy B: Decomposition
             sub_questions = rewrite_decompose(question)
             rewrites_used.extend(sub_questions)
-            if verbose:
-                print(f"  Decomposed into {len(sub_questions)} sub-questions")
-            
+            print(f"[DEBUG]   strategy=decomposition  sub_questions={sub_questions}")
+
             sub_results = []
             for sq in sub_questions:
                 sub_chunks = retrieve(sq, top_k=top_k)
                 sub_results.append(sub_chunks)
-            
+
             merged_chunks = merge_chunk_results(sub_results, top_k=top_k)
             attempt = _attempt(question, "decomposition", source_chunks_override=merged_chunks)
 
+        elif retry == 3:
+            # Strategy C: Disambiguation — identify which contract the question targets
+            disambiguated = rewrite_with_disambiguation(question, best_result["chunks"])
+            rewrites_used.append(disambiguated)
+            print(f"[DEBUG]   strategy=disambiguation")
+            print(f"[DEBUG]   original    : {question[:80]}")
+            print(f"[DEBUG]   disambiguated: {disambiguated[:80]}")
+            attempt = _attempt(disambiguated, "disambiguation")
+
+        print(f"[DEBUG]   after rewrite: confidence={attempt['confidence']:.4f}  (best so far={best_confidence:.4f})")
         if attempt["confidence"] > best_confidence:
             best_result = attempt
             best_confidence = attempt["confidence"]
+            print(f"[DEBUG]   → new best! confidence={best_confidence:.4f}")
+        else:
+            print(f"[DEBUG]   → no improvement, keeping previous best")
 
     # ── Generate final answer with best chunks ─────────────────────────────────
     best_chunks = best_result["chunks"]

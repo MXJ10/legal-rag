@@ -1,0 +1,178 @@
+{
+  "timestamp": "20260308_011640",
+  "mode": "both",
+  "summary": {
+    "baseline": {
+      "recall_at_5": 0.8,
+      "accuracy_exact": 0.0,
+      "accuracy_partial": 0.0,
+      "avg_confidence": 0.7509,
+      "avg_retries": 0.0,
+      "n": 5
+    },
+    "agentic": {
+      "recall_at_5": 0.8,
+      "accuracy_exact": 0.4,
+      "accuracy_partial": 0.4,
+      "avg_confidence": 0.7993,
+      "avg_retries": 0.0,
+      "n": 5
+    }
+  },
+  "details": {
+    "baseline": [
+      {
+        "id": "q001",
+        "question": "Under the Seattle Software Developers / Pelican Delivers Software Development Agreement, within how many calendar days must Client perform Acceptance Tests on the Final Deliverable after the Acceptance Test Date?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.841,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "Client must perform Acceptance Tests on the Final Deliverable within fifteen (15) calendar days from the Acceptance Test Date, as specified in Section 3.7 of the Agreement."
+      },
+      {
+        "id": "q002",
+        "question": "Under the Seattle Software Developers / Pelican Delivers Software Development Agreement, how many days does Developer have to correct deficiencies after receiving a Change Request concerning the Final Deliverable?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7905,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "Developer has fifteen (15) calendar days from the receipt of a Change Request concerning the Final Deliverable to correct the deficiencies, errors, corrections, modifications, bug-fixes or changes, as provided in Section 3.7 of the Agreement."
+      },
+      {
+        "id": "q003",
+        "question": "What is the total Fee for the Phase 1 project under the Seattle Software Developers / Pelican Delivers Statement of Work, and how many equal installments is it divided into?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7106,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Under the cuad_048_SeattleSoftwareDevelopers agreement, the total Fee for the Phase 1 project is $279,000.00, divided into 4 equal installments of $69,750.00 each.",
+        "ground_truth": "The total Fees for the Project are $279,000.00, divided into five equal installments of $55,800.00 each: a 20% deposit at the start and 20% upon completion of each of Milestones 1 through 4."
+      },
+      {
+        "id": "q004",
+        "question": "In the Seattle Software Developers / Pelican Delivers Agreement, what notice period is required for termination without cause, and what obligation does Developer have regarding Works upon termination?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": false,
+        "accuracy": "INCORRECT",
+        "confidence": 0.5854,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "Either party may terminate without cause upon two weeks written notice. Upon termination, Developer must transfer all Works to Client as of the date of termination, per Section 11.1 of the Agreement."
+      },
+      {
+        "id": "q005",
+        "question": "Under the Emerald Health Sciences / Dr. Murray Consulting and Licensing Agreement, what is the monthly payment EHN agrees to pay Dr. Murray during the first twelve months, and when is each payment due?",
+        "contract_type": "Consulting and Product Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.8272,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Under the 'cuad_039_Consulting_and_Product_Development_Agreement', EHN agrees to pay Dr. Murray $8,333 per month, and each payment is due at the end of each month (ARTICLE 5 -- COMPENSATION, 5.1).",
+        "ground_truth": "EHN will pay Dr. Murray $8,333 per month, payable at the end of each month during the first twelve months that the agreement is in effect, as stated in Section 5.1."
+      }
+    ],
+    "agentic": [
+      {
+        "id": "q001",
+        "question": "Under the Seattle Software Developers / Pelican Delivers Software Development Agreement, within how many calendar days must Client perform Acceptance Tests on the Final Deliverable after the Acceptance Test Date?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.8823,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "Client must perform Acceptance Tests on the Final Deliverable within fifteen (15) calendar days from the Acceptance Test Date, as specified in Section 3.7 of the Agreement."
+      },
+      {
+        "id": "q002",
+        "question": "Under the Seattle Software Developers / Pelican Delivers Software Development Agreement, how many days does Developer have to correct deficiencies after receiving a Change Request concerning the Final Deliverable?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.8671,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "Developer has fifteen (15) calendar days from the receipt of a Change Request concerning the Final Deliverable to correct the deficiencies, errors, corrections, modifications, bug-fixes or changes, as provided in Section 3.7 of the Agreement."
+      },
+      {
+        "id": "q003",
+        "question": "What is the total Fee for the Phase 1 project under the Seattle Software Developers / Pelican Delivers Statement of Work, and how many equal installments is it divided into?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "CORRECT",
+        "confidence": 0.7732,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Under the cuad_048_SeattleSoftwareDevelopers agreement, the total Fee for the Phase 1 project is $279,000.00, divided into 5 equal installments of $55,800.00 each.",
+        "ground_truth": "The total Fees for the Project are $279,000.00, divided into five equal installments of $55,800.00 each: a 20% deposit at the start and 20% upon completion of each of Milestones 1 through 4."
+      },
+      {
+        "id": "q004",
+        "question": "In the Seattle Software Developers / Pelican Delivers Agreement, what notice period is required for termination without cause, and what obligation does Developer have regarding Works upon termination?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": false,
+        "accuracy": "INCORRECT",
+        "confidence": 0.6656,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Not found in the provided contracts.",
+        "ground_truth": "Either party may terminate without cause upon two weeks written notice. Upon termination, Developer must transfer all Works to Client as of the date of termination, per Section 11.1 of the Agreement."
+      },
+      {
+        "id": "q005",
+        "question": "Under the Emerald Health Sciences / Dr. Murray Consulting and Licensing Agreement, what is the monthly payment EHN agrees to pay Dr. Murray during the first twelve months, and when is each payment due?",
+        "contract_type": "Consulting and Product Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "CORRECT",
+        "confidence": 0.8082,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "Under the 'cuad_039_Consulting_and_Product_Development_Agreement', EHN agrees to pay Dr. Murray $8,333 per month at the end of each month (Article 5.1). Payments are due at the end of each month during the first twelve months (Article 5.1).",
+        "ground_truth": "EHN will pay Dr. Murray $8,333 per month, payable at the end of each month during the first twelve months that the agreement is in effect, as stated in Section 5.1."
+      }
+    ]
+  }
+}

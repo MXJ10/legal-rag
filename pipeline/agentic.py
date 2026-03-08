@@ -281,6 +281,14 @@ def agentic_answer(
     prompt = build_prompt(question, best_chunks)
     answer = call_llm(prompt)
 
+    # Fall back to baseline retrieval if LLM call failed
+    if answer == "[LLM_ERROR]":
+        print(f"[WARN] agentic answer failed, retrying with baseline chunks")
+        baseline_chunks = all_attempts[0]["chunks"] if all_attempts else best_chunks
+        answer = call_llm(build_prompt(question, baseline_chunks))
+        if answer == "[LLM_ERROR]":
+            answer = "Answer generation failed — please retry."
+
     return {
         "question": question,
         "answer": answer,

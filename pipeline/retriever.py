@@ -195,9 +195,14 @@ def call_llm(prompt: str) -> str:
             temperature=0.1,
             max_tokens=512,
         )
-        return response.choices[0].message.content.strip()
+        content = response.choices[0].message.content
+        if not content or not content.strip():
+            print(f"[WARN] Groq returned empty response. Raw: {response}")
+            return "[LLM_ERROR]"
+        return content.strip()
     except Exception as e:
-        return f"[LLM error: {e}]"
+        print(f"[WARN] Groq call failed: {e}")
+        return "[LLM_ERROR]"
 
 
 def answer_question(

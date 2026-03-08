@@ -105,7 +105,7 @@ def judge_answer_accuracy(question: str, ground_truth: str, generated: str) -> s
         except Exception as e:
             msg = str(e)
             if "rate_limit_exceeded" in msg and attempt < 3:
-                wait = 30 * (attempt + 1)
+                wait = 60 * (attempt + 1)
                 print(f"    ⏳ Rate limit hit, waiting {wait}s...")
                 time.sleep(wait)
             else:

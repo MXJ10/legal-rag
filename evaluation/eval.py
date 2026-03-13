@@ -56,24 +56,41 @@ def chunk_contains_answer(chunks: list[dict], qa: dict) -> bool:
     return False
 
 
-ACCURACY_JUDGE_PROMPT = """You are evaluating whether a generated answer is correct compared to a ground truth answer.
+ACCURACY_JUDGE_PROMPT = """You are evaluating whether a generated answer captures the key facts from the ground truth.
 
 Question: {question}
-Ground Truth Answer: {ground_truth}
+Ground Truth: {ground_truth}
 Generated Answer: {generated}
 
-Is the generated answer correct? It doesn't need to be word-for-word identical, but it must 
-capture the key facts without contradicting the ground truth.
+Scoring rules:
+- CORRECT: The key numerical facts, dates, names, or conditions match — even if phrasing differs, section numbers are missing, or a file name is cited instead of a section
+- PARTIAL: Some key facts are captured but one important detail is missing or vague
+- INCORRECT: The answer contradicts the ground truth, says "Not Found", or is completely wrong
 
 Respond with ONLY one of: CORRECT, PARTIAL, INCORRECT"""
 
 
-def judge_answer_accuracy(question: str, ground_truth: str, generated: str) -> str:
+def judge_answer_accuracy(question: str, ground_truth: str, generated: str, debug: bool = False) -> str:
     """
     Use LLM-as-judge to rate answer accuracy.
     Returns: "CORRECT", "PARTIAL", or "INCORRECT"
     Falls back to keyword matching if no LLM available.
     """
+    if debug:
+        print(f"\n{'─'*70}")
+        print(f"  JUDGE INPUT")
+        print(f"{'─'*70}")
+        filled_prompt = ACCURACY_JUDGE_PROMPT.format(
+            question=question,
+            ground_truth=ground_truth,
+            generated=generated,
+        )
+        print(filled_prompt)
+        print(f"{'─'*70}")
+        print(f"  GROUND TRUTH : {ground_truth}")
+        print(f"  GENERATED    : {generated}")
+        print(f"{'─'*70}")
+
     if not GROQ_API_KEY:
         # Fallback: simple keyword overlap
         gt_words = set(ground_truth.lower().split())
@@ -114,7 +131,7 @@ def judge_answer_accuracy(question: str, ground_truth: str, generated: str) -> s
     return "INCORRECT"
 
 
-def run_evaluation(mode: str = "both", qa_subset: list[dict] = None) -> dict:
+def run_evaluation(mode: str = "both", qa_subset: list[dict] = None, debug_n: int = 0) -> dict:
     """
     Run full evaluation. mode = "baseline" | "agentic" | "both"
     Returns metrics dict with per-question results and aggregates.
@@ -148,6 +165,7 @@ def run_evaluation(mode: str = "both", qa_subset: list[dict] = None) -> dict:
                 qa["question"],
                 qa.get("ground_truth", qa.get("answer", "")),
                 result["answer"],
+                debug=(i < debug_n),
             )
 
             row = {
@@ -235,12 +253,16 @@ if __name__ == "__main__":
     parser.add_argument("--limit", type=int, default=None, help="Limit to N questions for quick test")
     parser.add_argument("--offset", type=int, default=0, help="Skip first N questions before running")
     parser.add_argument("--qa-file", type=Path, default=None, help="Path to QA pairs JSON file")
+    parser.add_argument("--questions", type=str, default=None, help="Comma-separated 1-indexed question numbers to run (e.g. 1,5,10)")
     args = parser.parse_args()
 
     qa = load_qa_pairs(args.qa_file)
-    if args.offset or args.limit:
+    if args.questions:
+        indices = [int(n.strip()) - 1 for n in args.questions.split(",")]
+        qa = [qa[i] for i in indices if 0 <= i < len(qa)]
+    elif args.offset or args.limit:
         start = args.offset or 0
         end = (start + args.limit) if args.limit else None
         qa = qa[start:end]
 
-    run_evaluation(mode=args.mode, qa_subset=qa)
+    run_evaluation(mode=args.mode, qa_subset=qa, debug_n=3)

@@ -1,0 +1,64 @@
+{
+  "timestamp": "20260312_152934",
+  "mode": "baseline",
+  "summary": {
+    "baseline": {
+      "recall_at_5": 1.0,
+      "accuracy_exact": 0.0,
+      "accuracy_partial": 0.0,
+      "avg_confidence": 0.7807,
+      "avg_retries": 0.0,
+      "n": 3
+    }
+  },
+  "details": {
+    "baseline": [
+      {
+        "id": "q001",
+        "question": "Under the Seattle Software Developers / Pelican Delivers Software Development Agreement, within how many calendar days must Client perform Acceptance Tests on the Final Deliverable after the Acceptance Test Date?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.841,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "[LLM stub \u2014 set GROQ_API_KEY to enable real answers]\n(Would answer using 541 word prompt)",
+        "ground_truth": "Client must perform Acceptance Tests on the Final Deliverable within fifteen (15) calendar days from the Acceptance Test Date, as specified in Section 3.7 of the Agreement."
+      },
+      {
+        "id": "q002",
+        "question": "Under the Seattle Software Developers / Pelican Delivers Software Development Agreement, how many days does Developer have to correct deficiencies after receiving a Change Request concerning the Final Deliverable?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7905,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "[LLM stub \u2014 set GROQ_API_KEY to enable real answers]\n(Would answer using 553 word prompt)",
+        "ground_truth": "Developer has fifteen (15) calendar days from the receipt of a Change Request concerning the Final Deliverable to correct the deficiencies, errors, corrections, modifications, bug-fixes or changes, as provided in Section 3.7 of the Agreement."
+      },
+      {
+        "id": "q003",
+        "question": "What is the total Fee for the Phase 1 project under the Seattle Software Developers / Pelican Delivers Statement of Work, and how many equal installments is it divided into?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7106,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "[LLM stub \u2014 set GROQ_API_KEY to enable real answers]\n(Would answer using 607 word prompt)",
+        "ground_truth": "The total Fees for the Project are $279,000.00, divided into five equal installments of $55,800.00 each: a 20% deposit at the start and 20% upon completion of each of Milestones 1 through 4."
+      }
+    ],
+    "agentic": []
+  }
+}

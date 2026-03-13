@@ -1,0 +1,64 @@
+{
+  "timestamp": "20260312_155105",
+  "mode": "baseline",
+  "summary": {
+    "baseline": {
+      "recall_at_5": 1.0,
+      "accuracy_exact": 0.6667,
+      "accuracy_partial": 0.6667,
+      "avg_confidence": 0.7807,
+      "avg_retries": 0.0,
+      "n": 3
+    }
+  },
+  "details": {
+    "baseline": [
+      {
+        "id": "q001",
+        "question": "Under the Seattle Software Developers / Pelican Delivers Software Development Agreement, within how many calendar days must Client perform Acceptance Tests on the Final Deliverable after the Acceptance Test Date?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "CORRECT",
+        "confidence": 0.841,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "According to Excerpt 1 of the 'cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT', Client must perform Acceptance Tests on the Final Deliverable within fifteen (15) calendar days from the Acceptance Test Date. \n\nContract Name: 'cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT'",
+        "ground_truth": "Client must perform Acceptance Tests on the Final Deliverable within fifteen (15) calendar days from the Acceptance Test Date, as specified in Section 3.7 of the Agreement."
+      },
+      {
+        "id": "q002",
+        "question": "Under the Seattle Software Developers / Pelican Delivers Software Development Agreement, how many days does Developer have to correct deficiencies after receiving a Change Request concerning the Final Deliverable?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "CORRECT",
+        "confidence": 0.7905,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "According to Excerpt 2 of the 'cuad_049_SOFTWARE_DEVELOPMENT_AGREEMENT', Developer will have fifteen (15) calendar days from the receipt of a Change Request to correct the deficiencies, errors, corrections, modifications, bug-fixes or changes to the Final Deliverable.",
+        "ground_truth": "Developer has fifteen (15) calendar days from the receipt of a Change Request concerning the Final Deliverable to correct the deficiencies, errors, corrections, modifications, bug-fixes or changes, as provided in Section 3.7 of the Agreement."
+      },
+      {
+        "id": "q003",
+        "question": "What is the total Fee for the Phase 1 project under the Seattle Software Developers / Pelican Delivers Statement of Work, and how many equal installments is it divided into?",
+        "contract_type": "Software Development Agreement",
+        "difficulty": "easy",
+        "question_type": "factual",
+        "recall_hit": true,
+        "accuracy": "INCORRECT",
+        "confidence": 0.7106,
+        "retrieval_method": "baseline",
+        "num_retries": 0,
+        "rewrites_used": [],
+        "generated_answer": "The total Fee for the Phase 1 project under the Seattle Software Developers / Pelican Delivers Statement of Work is $279,000.00. It is divided into 4 equal installments of $55,800.00 each, to be paid upon completion of Milestones #1, #2, #3, and #4 respectively. (cuad_048_SeattleSoftwareDevelopers)",
+        "ground_truth": "The total Fees for the Project are $279,000.00, divided into five equal installments of $55,800.00 each: a 20% deposit at the start and 20% upon completion of each of Milestones 1 through 4."
+      }
+    ],
+    "agentic": []
+  }
+}

@@ -149,27 +149,26 @@ def build_prompt(question: str, chunks: list[dict]) -> str:
     context_parts = []
     for i, chunk in enumerate(chunks, 1):
         context_parts.append(
-            f"[Excerpt {i} from '{chunk['source']}' ({chunk['contract_type']})]\n{chunk['text']}"
+            f"[Excerpt {i} — '{chunk['source']}' ({chunk['contract_type']})]\n"
+            f"{chunk['text']}"
         )
     context = "\n\n---\n\n".join(context_parts)
 
     return f"""You are a precise legal contract analyst.
 
-RULES:
+Answer the question using ONLY the contract excerpts provided below.
 - Answer in 2-3 sentences maximum
-- State the answer directly — no preamble
-- Cite the contract name in your answer (e.g. "Under the DOT COM LLC agreement...")
-- If the answer spans multiple clauses, list them concisely
-- If the answer is truly not found, say exactly: "Not found in the provided contracts."
-- Never repeat the same information twice
-- Never say "based on the provided excerpts" or similar filler phrases
+- State the specific fact directly (number, date, amount, condition)
+- Cite the contract name in your answer
+- If the answer is spread across excerpts, synthesize them
+- Only say "Not found" if the concept is completely absent from ALL excerpts
 
 CONTRACT EXCERPTS:
 {context}
 
 QUESTION: {question}
 
-DIRECT ANSWER:"""
+ANSWER:"""
 
 
 def call_llm(prompt: str) -> str:

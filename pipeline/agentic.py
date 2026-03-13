@@ -225,31 +225,21 @@ def agentic_answer(
         best_result = attempt
         best_confidence = attempt["confidence"]
 
-    top_score_0 = best_result["chunks"][0]["score"] if best_result["chunks"] else 0
-    will_rewrite = should_rewrite(best_result["chunks"], best_confidence, question=question)
-    print(f"\n[DEBUG] Q: {question[:80]}")
-    print(f"[DEBUG]   initial confidence={best_confidence:.4f}  top_chunk_score={top_score_0:.4f}  should_rewrite={will_rewrite}")
-
     # ── Agentic retries ────────────────────────────────────────────────────────
     retry = 0
     while should_rewrite(best_result["chunks"], best_confidence, question=question) and retry < MAX_RETRIES:
         retry += 1
-        print(f"[DEBUG]   → REWRITE triggered: retry {retry}/{MAX_RETRIES}  confidence={best_confidence:.4f}")
 
         if retry == 1:
             # Strategy A: Legal paraphrase
             rewritten = rewrite_legal_paraphrase(question)
             rewrites_used.append(rewritten)
-            print(f"[DEBUG]   strategy=paraphrase")
-            print(f"[DEBUG]   original : {question[:80]}")
-            print(f"[DEBUG]   rewritten: {rewritten[:80]}")
             attempt = _attempt(rewritten, "paraphrase")
 
         elif retry == 2:
             # Strategy B: Decomposition
             sub_questions = rewrite_decompose(question)
             rewrites_used.extend(sub_questions)
-            print(f"[DEBUG]   strategy=decomposition  sub_questions={sub_questions}")
 
             sub_results = []
             for sq in sub_questions:
@@ -263,18 +253,11 @@ def agentic_answer(
             # Strategy C: Disambiguation — identify which contract the question targets
             disambiguated = rewrite_with_disambiguation(question, best_result["chunks"])
             rewrites_used.append(disambiguated)
-            print(f"[DEBUG]   strategy=disambiguation")
-            print(f"[DEBUG]   original    : {question[:80]}")
-            print(f"[DEBUG]   disambiguated: {disambiguated[:80]}")
             attempt = _attempt(disambiguated, "disambiguation")
 
-        print(f"[DEBUG]   after rewrite: confidence={attempt['confidence']:.4f}  (best so far={best_confidence:.4f})")
         if attempt["confidence"] > best_confidence:
             best_result = attempt
             best_confidence = attempt["confidence"]
-            print(f"[DEBUG]   → new best! confidence={best_confidence:.4f}")
-        else:
-            print(f"[DEBUG]   → no improvement, keeping previous best")
 
     # ── Generate final answer with best chunks ─────────────────────────────────
     best_chunks = best_result["chunks"]
